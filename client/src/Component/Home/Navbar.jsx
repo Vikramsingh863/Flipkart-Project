@@ -23,7 +23,7 @@ export default function NavBar() {
     const [nav, setNav] = useState();
     useEffect(() => {
         axios({
-            url: 'http://localhost:5600/navigation',
+            url: 'flipkart-project-f1l9.onrender.com/navigation',
             method: 'GET',
             headers: { 'Content-Type': 'application/json' }
         })

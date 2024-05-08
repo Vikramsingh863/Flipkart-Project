@@ -51,10 +51,10 @@ console.log(product.id, logedUser)
 
 
     const checkoutHandler = async (amount, product, logedUser) => {
+        const URL ="flipkart-project-f1l9.onrender.com"
+        const { data: { key } } = await axios.get(`${URL}/api/getkey`)
 
-        const { data: { key } } = await axios.get("http://www.localhost:5600/api/getkey")
-
-        const { data: { order } } = await axios.post("http://localhost:5600/api/checkout", {
+        const { data: { order } } = await axios.post(`${URL}/api/checkout`, {
             amount,  notes: {
                 product,
                 logedUser
@@ -77,7 +77,7 @@ console.log(product.id, logedUser)
             },
             image: "https://avatars.githubusercontent.com/u/148927618?v=4",
             order_id: order.id,
-            callback_url: "http://localhost:5600/api/paymentverification",
+            callback_url: `${URL}/api/paymentverification`,
 
 
             theme: {

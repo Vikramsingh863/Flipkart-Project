@@ -35,7 +35,7 @@ export default function Banner() {
     const [banner, setBanner] = useState();
     useEffect(() => {
         axios({
-            url: 'http://localhost:5600/banner',
+            url: 'flipkart-project-f1l9.onrender.com/banner',
             method: 'GET',
             headers: { 'Content-Type': 'application/json' }
         })
