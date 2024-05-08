@@ -14,7 +14,7 @@ const USERNAME = process.env.DB_USERNAME
 const PASSWORD = process.env.DB_PASSWORD
 
 const corsOptions={
-    origin: 'http://localhost:3000',
+    origin: 'https://flipkartclonebyvikramsingh.netlify.app/',
     credentials: true,
     optionSuccessStatus: 200
 }

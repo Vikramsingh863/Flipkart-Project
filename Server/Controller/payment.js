@@ -14,7 +14,7 @@ export const checkout = async (req, res) => {
   const options = {
     amount: Number(req.body.amount * 100),
     currency: "INR",
-    notes:req.body.notes
+    
   };
   const order = await instance.orders.create(options);
 
@@ -39,23 +39,23 @@ export const paymentVerification = async (req, res) => {
   if (isAuthentic) {
     // Database comes here
 
-    // await Payment.create({
-    //   razorpay_order_id,
-    //   razorpay_payment_id,
-    //   razorpay_signature,
-    //   products
-    // });
-
-    const updatedValues = {
-      razorpay_order_id ,
-      razorpay_payment_id ,
-      razorpay_signature ,
+    await Payment.create({
+      razorpay_order_id,
+      razorpay_payment_id,
+      razorpay_signature,
       
-    };
-    await User.findOneAndUpdate({"Username":"vikramsingh"}, updatedValues, { new: true });
+    });
+
+    // const updatedValues = {
+    //   razorpay_order_id ,
+    //   razorpay_payment_id ,
+    //   razorpay_signature ,
+      
+    // };
+    // await User.findOneAndUpdate({"Username":"vikramsingh"}, updatedValues, { new: true });
 
     res.redirect(
-      `http://localhost:3000/payment?razorpay_payment_id=${razorpay_payment_id}`
+      `https://flipkartclonebyvikramsingh.netlify.app/payment?razorpay_payment_id=${razorpay_payment_id}`
     );
       
   } else {

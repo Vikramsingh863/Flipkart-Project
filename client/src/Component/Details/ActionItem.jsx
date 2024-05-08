@@ -36,9 +36,7 @@ const ActionItem = ({ product }) => {
 console.log(product.id, logedUser)
 
     const [quantity, setQuantity] = useState(1)
-    //     useEffect(()=>{
-
-    // },[dispatch])
+    
 
     const { id } = product;
 
@@ -50,7 +48,7 @@ console.log(product.id, logedUser)
     }
 
 
-    const checkoutHandler = async (amount, product, logedUser) => {
+    const checkoutHandler = async (amount) => {
         const URL ="flipkart-project-f1l9.onrender.com"
         const { data: { key } } = await axios.get(`${URL}/api/getkey`)
 
@@ -97,7 +95,7 @@ console.log(product.id, logedUser)
 
 
                 <Cart />Add to Cart</StyledButton>
-            <StyledButton style={{ background: '#fb641b' }} variant="contained" onClick={() => checkoutHandler(product.price.cost, product.id, logedUser.account)} ><Flash /> Buy Now</StyledButton>
+            <StyledButton style={{ background: '#fb641b' }} variant="contained" onClick={() => checkoutHandler(product.price.cost)} ><Flash /> Buy Now</StyledButton>
         </LeftContainer>
     )
 }
