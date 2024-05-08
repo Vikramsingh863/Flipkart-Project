@@ -6,10 +6,8 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "clent-install" :"cd client && npm install",
-    "client-build": "cd client && npm run build",
-    "start": "node server.js",
-    "heroku-postbuild":"npm run client-install && npm run client-build"
+    "build":"npm i",
+    "start": "node server.js"
   },
   "author": "",
   "license": "ISC",
