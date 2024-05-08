@@ -1,0 +1,30 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "clent-install" :"cd client && npm install",
+    "client-build": "cd client && npm run build",
+    "start": "node server.js",
+    "heroku-postbuild":"npm run client-install && npm run client-build"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
+    "crypto": "^1.0.1",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "formidable": "^3.5.1",
+    "https": "^1.0.0",
+    "mongoose": "^8.3.2",
+    "nodemon": "^3.1.0",
+    "paytmchecksum": "^1.5.1",
+    "razorpay": "^2.9.3",
+    "uuid": "^9.0.1"
+  }
+}
