@@ -13,14 +13,14 @@ const app = express()
 const USERNAME = process.env.DB_USERNAME
 const PASSWORD = process.env.DB_PASSWORD
 
-const corsOptions={
-    origin: 'https://flipkartclonebyvikramsingh.netlify.app/',
-    credentials: true,
-    optionSuccessStatus: 200
-}
+// const corsOptions={
+//     origin: 'https://flipkartclonebyvikramsingh.netlify.app',
+//     credentials: true,
+//     optionSuccessStatus: 200
+// }
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json())
-app.use(cors(corsOptions));
+app.use(cors());
 app.use('/',route)
 app.use("/api", paymentRoute);
 app.get("/api/getkey", (req, res) =>

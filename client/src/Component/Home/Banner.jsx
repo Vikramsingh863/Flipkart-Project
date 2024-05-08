@@ -41,17 +41,18 @@ export default function Banner() {
         })
             .then(response => {
                 setBanner(response.data.Banner)
+                console.log(response)
             })
             .catch(error => {
                 console.error('Error:', error);
             });
     }, [])
-
+    
     return (
         <div>
 
             {
-                banner && <Carousel responsive={responsive}
+                 <Carousel responsive={responsive}
                     swipeable={false}
                     draggable={false}
                     infinite={true}
@@ -62,7 +63,7 @@ export default function Banner() {
                     itemClass="carousel-item-padding-40-px"
                     containerClass="carousel-container">
 
-                    {banner.map(data => (
+                     {banner &&banner.map(data => (
                         <Image src={data.url} alt="banner" />
                     ))
                     }
