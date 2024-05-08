@@ -27,12 +27,8 @@ app.get("/api/getkey", (req, res) =>
     res.status(200).json({ key: process.env.RAZORPAY_API_KEY })
   );
 const port = process.env.port||5600;
-const URL = process.env.MONGODB_URI || `mongodb+srv://${USERNAME}:${PASSWORD}@cluster0.13njzdi.mongodb.net/Flipkart?retryWrites=true&w=majority&appName=Cluster0`
-
-if(process.env.NODE_ENV==='production'){
-    app.use(express.static('client/build'))
-}
-mongoose.connect(`${URL}`)
+const URL = process.env.DATABASE 
+mongoose.connect(URL)
 .then(()=>{
     app.listen(port, ()=>{
         console.log("server running at PORT No", port)
