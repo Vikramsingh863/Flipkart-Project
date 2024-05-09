@@ -3,10 +3,10 @@ import { useSelector, useDispatch } from "react-redux";
 import CartItem from "./CartItem";
 import TotalView from "./TotalView";
 import EmptyCart from "./emptyCard";
-import axios from "axios";
+import { useEffect, useState } from "react";
 import { removeFromCart } from "../../Redux/actions/cartAction";
-
-
+import axios from "axios";
+import { useSearchParams } from "react-router-dom"
 const Cart = () => {
     const cartItem = useSelector(state => state.cart.cartItems)
     
@@ -58,42 +58,6 @@ const Cart = () => {
         width: 250px;
         height: 51px;
     `
-    const checkoutHandler = async (amount) => {
-        const URL ="flipkart-project-f1l9.onrender.com"
-        const { data: { key } } = await axios.get(`${URL}/api/getkey`)
-
-        const { data: { order } } = await axios.post(`${URL}/api/checkout`, {
-            amount,  notes: {
-                
-            }
-            
-        })
-        console.log(order)
-        const options = {
-            key: key,
-            amount: order.amount,
-            currency: "INR",
-            name: "Vikram Singh",
-            
-            notes: {
-                "products": order.product,
-                "logedUser": order.logedUser
-            },
-            theme: {
-                "color": "#121212"
-            },
-            image: "https://avatars.githubusercontent.com/u/148927618?v=4",
-            order_id: order.id,
-            callback_url: `${URL}/api/paymentverification`,
-
-
-            theme: {
-                "color": "#2874f0"
-            }
-        };
-        const razor = new window.Razorpay(options);
-        razor.open();
-    }
     
     return (
         
@@ -112,7 +76,7 @@ const Cart = () => {
                             ))
                         }
                     <BottomWrapper>
-                        <StyledButton  variant="contained" onClick={() => checkoutHandler(100)}  >Place Order</StyledButton>
+                        <StyledButton  variant="contained"  >Place Order</StyledButton>
                     </BottomWrapper>
                 </LeftComponent>
                 <Grid item lg={3} md={3} sm={12} xs={12}>
@@ -120,7 +84,7 @@ const Cart = () => {
                 </Grid>
             </Component> : <EmptyCart />
         }
- 
+
         </>
     )
 }

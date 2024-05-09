@@ -23,7 +23,7 @@ export default function NavBar() {
     const [nav, setNav] = useState();
     useEffect(() => {
         axios({
-            url: 'flipkart-project-f1l9.onrender.com/navigation',
+            url: 'https://flipkart-project-f1l9.onrender.com/navigation',
             method: 'GET',
             headers: { 'Content-Type': 'application/json' }
         })
@@ -31,11 +31,11 @@ export default function NavBar() {
                 setNav(response.data)
             })
             .catch(error => {
-                console.error('Error:', error);
+                console.log('Error:', error);
             });
     }, [])
 
-
+    console.log(nav)
     return (
         <Component className="d-flex">
 

@@ -87,7 +87,7 @@ const Slide = ({ products, title, timer }) => {
             <Divider />
 
 
-            <Carousel responsive={responsive} swipeable={false}
+            {products&&<Carousel responsive={responsive} swipeable={false}
                 draggable={false}
                 infinite={true}
                 autoPlay={true}
@@ -97,7 +97,7 @@ const Slide = ({ products, title, timer }) => {
                 dotListClass="custom-dot-list-style"
                 itemClass="carousel-item-padding-40-px"
                 containerClass="carousel-container">
-                {products&&products.map(product => (
+                {products.map(product => (
                     <Link to={`product/${product.id}`} style={{textDecoration:'none'}}>
                         <Box textAlign="center" styled={{ padding: "25px 15px" }}>
                             <Image src={product.url} alt="" />
@@ -110,7 +110,7 @@ const Slide = ({ products, title, timer }) => {
                 ))
                 }
 
-            </Carousel>
+            </Carousel>}
             <Divider />
 
 

@@ -1,9 +1,8 @@
 import axios from "axios";
-const URL = "https://flipkart-project-f1l9.onrender.com"
 
 export const authenticateSignup = async (data) => {
     try {
-       return await axios.post(`${URL}/signup`, data);
+       return await axios.post("https://flipkart-project-f1l9.onrender.com/signup", data);
 
 
     } catch (err) {
@@ -15,7 +14,7 @@ export const authenticateSignup = async (data) => {
 
 export const authenticateLogin = async (data) => {
     try {
-       return await axios.post(`${URL}/login`, data);
+       return await axios.post("https://flipkart-project-f1l9.onrender.com/login", data);
 
 
     } catch (err) {
@@ -27,7 +26,7 @@ export const authenticateLogin = async (data) => {
 
 export const payUsingPaytm=async (data)=>{
     try {
-        await axios.post(`${URL}/payment`, data)
+        await axios.post('https://flipkart-project-f1l9.onrender.com/navigation/payment', data)
         return Response.data;
     } catch (error) {
         console.log('Error while calling apyment api',error)

@@ -35,24 +35,23 @@ export default function Banner() {
     const [banner, setBanner] = useState();
     useEffect(() => {
         axios({
-            url: 'flipkart-project-f1l9.onrender.com/banner',
+            url: 'https://flipkart-project-f1l9.onrender.com/banner',
             method: 'GET',
             headers: { 'Content-Type': 'application/json' }
         })
             .then(response => {
                 setBanner(response.data.Banner)
-                console.log(response)
             })
             .catch(error => {
-                console.error('Error:', error);
+                console.log('Error:', error);
             });
     }, [])
-    
+console.log(banner)
     return (
         <div>
 
             {
-                 <Carousel responsive={responsive}
+                banner && <Carousel responsive={responsive}
                     swipeable={false}
                     draggable={false}
                     infinite={true}
@@ -63,7 +62,7 @@ export default function Banner() {
                     itemClass="carousel-item-padding-40-px"
                     containerClass="carousel-container">
 
-                     {banner &&banner.map(data => (
+                    {banner.map(data => (
                         <Image src={data.url} alt="banner" />
                     ))
                     }
