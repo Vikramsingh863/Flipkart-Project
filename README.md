@@ -16,7 +16,7 @@ Express.js
 MongoDB
 
 #### Setup Instructions
-Clone the repository: git clone https://github.com/your-username/your-repository.git
+Clone the repository: git clone https://github.com/Vikramsingh863/Flipkart-Project
 Navigate to the project directory: cd your-repository
 Install dependencies for both the frontend and backend:
 Frontend: cd client && npm install
