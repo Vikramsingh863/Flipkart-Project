@@ -17,7 +17,7 @@ MongoDB
 
 #### Setup Instructions
 Clone the repository: git clone https://github.com/Vikramsingh863/Flipkart-Project
-Navigate to the project directory: cd your-repository
+Navigate to the project directory
 Install dependencies for both the frontend and backend:
 Frontend: cd client && npm install
 Backend: cd server && npm install
