@@ -23,7 +23,7 @@ import axios from 'axios';
 
 export const AddToCart = (id, quantity) => async (dispatch) => {
     try { 
-        const { data } = await axios.get(`https://flipkart-project-f1l9.onrender.com/navigation/product/${id}`);
+        const { data } = await axios.get(`https://flipkart-project-f1l9.onrender.com/product/${id}`);
         
         dispatch({ type: actionTypes.ADD_TO_CART, payload: { ...data[0], quantity } });
 

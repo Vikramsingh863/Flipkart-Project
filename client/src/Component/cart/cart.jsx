@@ -9,16 +9,18 @@ import axios from "axios";
 import { useSearchParams } from "react-router-dom"
 const Cart = () => {
     const cartItem = useSelector(state => state.cart.cartItems)
-    
+    const [price, setPrice] = useState(0);
+    const [discount, setDiscount] = useState(0)
     const dispatch = useDispatch()
     const removeItemFromCart=(id)=>{
         dispatch(removeFromCart(id))
     }
 
-    const currentURL = window.location.href;
-    const url = new URL(currentURL);
-    const logedUser = url.searchParams.get('logedUser');
-    console.log(logedUser);
+    
+    // const currentURL = window.location.href;
+    // const url = new URL(currentURL);
+    // const logedUser = url.searchParams.get('logedUser');
+    // console.log(logedUser);
 
 
 
@@ -59,6 +61,39 @@ const Cart = () => {
         height: 51px;
     `
     
+    const checkoutHandler = async (amount) => {
+
+        const { data: { key } } = await axios.get("https://flipkart-project-f1l9.onrender.com/api/getkey")
+
+        const { data: { order } } = await axios.post("https://flipkart-project-f1l9.onrender.com/api/checkout", {
+            amount,
+        })
+        console.log(order)
+        const options = {
+            key: key,
+            amount: order.amount,
+            currency: "INR",
+            name: "Vikram Singh",
+            
+            notes: {
+                
+            },
+            theme: {
+                "color": "#121212"
+            },
+            image: "https://avatars.githubusercontent.com/u/148927618?v=4",
+            order_id: order.id,
+            callback_url: "https://flipkart-project-f1l9.onrender.com/api/paymentverification",
+
+
+            theme: {
+                "color": "#2874f0"
+            }
+        };
+        const razor = new window.Razorpay(options);
+        razor.open();
+    }
+    
     return (
         
         <>
@@ -76,11 +111,11 @@ const Cart = () => {
                             ))
                         }
                     <BottomWrapper>
-                        <StyledButton  variant="contained"  >Place Order</StyledButton>
+                        <StyledButton  variant="contained" onClick={()=>checkoutHandler(price-discount+40)} >Place Order</StyledButton>
                     </BottomWrapper>
                 </LeftComponent>
                 <Grid item lg={3} md={3} sm={12} xs={12}>
-                    <TotalView cartItems={cartItem} />
+                    <TotalView cartItems={cartItem} price={price} setPrice={setPrice} discount={discount} setDiscount={setDiscount}/>
                 </Grid>
             </Component> : <EmptyCart />
         }

@@ -43,9 +43,9 @@ const Discount = styled(Typography)`
 // },
 
 
-const TotalView = ({ cartItems }) => {
-    const [price, setPrice] = useState(0);
-    const [discount, setDiscount] = useState(0)
+const TotalView = ({ cartItems, price, setPrice, discount, setDiscount }) => {
+    // const [price, setPrice] = useState(0);
+    // const [discount, setDiscount] = useState(0)
 
     useEffect(() => {
         totalAmount();
@@ -60,6 +60,7 @@ const TotalView = ({ cartItems }) => {
         setPrice(price);
         setDiscount(discount);
     }
+    
 
     return (
         <Box>  {/* className={classes.component}> */}
