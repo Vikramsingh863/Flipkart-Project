@@ -6,23 +6,23 @@ This project is a full-stack web application built using the MERN stack. It cons
 
 ### Technologies Used
 #### Frontend:
-React.js
-Material-UI
+React.js, 
+Material-UI, 
 Redux
 #### Backend:
-Node.js
+Node.js, 
 Express.js
 #### Database:
 MongoDB
 
 #### Setup Instructions
 Clone the repository: git clone https://github.com/Vikramsingh863/Flipkart-Project
-Navigate to the project directory
-Install dependencies for both the frontend and backend:
-Frontend: cd client && npm install
-Backend: cd server && npm install
+Navigate to the project directory   
+Install dependencies for both the frontend and backend:   
+Frontend: cd client && npm install    
+Backend: cd server && npm install    
 
-Start the development servers:
-Frontend: cd client && npm start
-Backend: cd server && npm start
-Open your web browser and navigate to http://localhost:3000 to view the application.
+Start the development servers:    
+Frontend: cd client && npm start     
+Backend: cd server && npm start    
+Open your web browser and navigate to http://localhost:3000 to view the application.    
